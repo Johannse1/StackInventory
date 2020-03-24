@@ -65,8 +65,7 @@ class LinkedList:
             new_node.next = self.head
             self.head = new_node
 
-
-    def clear_all(self):
+    def clear(self):
         head = None
 
 
