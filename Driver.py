@@ -24,6 +24,8 @@ while menu_choice < 1 or menu_choice > 5:
         while data <= 1:
             Stack.push(data)
 
+            # this is where i am stuck, after runnung this code and entering '1', the code exits instead of going into the next loop
+
 
 
 
