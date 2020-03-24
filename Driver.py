@@ -25,7 +25,7 @@ while menu_choice < 1 or menu_choice > 5:
             total_inventory = total_inventory + data
             My_Inventory.push(data)
 
-            # this is where i am stuck, after runnung this code and entering '1', the code exits instead of going into the next loop
+            # this is where i am stuck, after runnung this code and entering '1', the code exits instead of going into the next loop, trying to find out why
 
     # elif menu_choice == 2:
 
