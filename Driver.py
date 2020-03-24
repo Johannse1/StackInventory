@@ -19,12 +19,15 @@ menu_choice = int(input(""" Please type the # of the action you want to perform.
 
 while menu_choice < 1 or menu_choice > 5:
     print(menu_choice)
+    data = 0
     if menu_choice == 1:
-        data = 0
         while data <= 1:
+            data = int(input("please ener the amount of inv. being added: "))
             Stack.push(data)
 
             # this is where i am stuck, after runnung this code and entering '1', the code exits instead of going into the next loop
+
+    elif menu_choice == 2:
 
 
 
