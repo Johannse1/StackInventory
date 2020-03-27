@@ -6,28 +6,71 @@ from Stack import Stack
 
 total_inventory = 0
 total_profit = 0
-My_Inventory = Stack()
+total_value_sold = 0
 
-menu_choice = int(input(""" Please type the # of the action you want to perform.
-1. Add to inv.
-2. Remove from inv.
-3. Check profit
-4. check inv.
-5. Exit
->> """))
 
-while menu_choice < 1 or menu_choice > 5:
-    print(menu_choice)
-    data = 0
-    if menu_choice == 1:
-        while data <= 1:
-            data = int(input("please enter the amount of inv. being added: "))
-            total_inventory = total_inventory + data
-            My_Inventory.push(data)
+Inventory = Stack()
+Price = Stack()
 
-            # this is where i am stuck, after runnung this code and entering '1', the code exits instead of going into the next loop, trying to find out why
 
-    # elif menu_choice == 2:
+choice = 0
+while choice != 5:
+    print("""
+    1. Add to inv.
+    2. Sell inv.
+    3. Check inv.
+    4. Check profit
+    5. Exit""")
+    choice = int(input(">>"))
+    if choice == 1: # adding to inventory
+        qty = int(input("How much is being added?:"))
+        price = int(input("How much does it cost?:"))
+        Inventory.push(qty) # Inventory stack
+        Price.push(price) #
+        print("Inventory added. \n\n")
+
+        total_inventory += qty # running total
+
+    elif choice == 2:
+        qty_needed = int(input("How mauch are you looking to sell?"))
+        if qty_needed > Inventory:
+            print("Not enough inv to fulfill order, try again. \n\n")
+            continue
+        else:
+            total_popped = 0
+            total_sale = 0.0
+            # next lines keep track of where you are
+            qty_popped = Inventory.pop()
+            total_inventory -= qty_popped
+            price = Inventory.pop()
+            total_sale += (qty_popped * price)
+            total_popped += qty_popped
+            # keep poppong until we hve enough
+            while total_popped < qty_needed:
+                qty_popped = Inventory.pop()
+                total_inventory -= qty_popped
+                price = Inventory.pop()
+                total_sale += (qty_popped * price)
+                total_popped += qty_popped
+                #incase we popped too many
+                if total_popped > qty_needed:
+                    overage = total_popped - qty_needed
+                    Inventory.push(overage)
+                    Price.push(price)
+                    total_inventory += overage
+                    total_sale -= (total_sale * .1)
+                    print(f"Order comlpete for {qty_needed}\n")
+
+    if choice == 3:
+        print(f"Total inventory: {total_inventory}\n")
+
+    if choice == 4:
+        print(f"Total profit: ${total_profit}\n")
+
+
+
+
+
 
 
 

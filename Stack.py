@@ -1,16 +1,16 @@
 # Stack Inventory
 # Evan Johanns
 
-from LinkedListTail import LinkedList
+from LinkedListMethods import LinkedListTail
 
 
 class Stack:
 
     def __init__(self):
-        myList = LinkedList()
+        self.myList = LinkedListTail()
 
     def push(self,data):
-        self.myList.add_head(data)
+        self.myList.push_head(data)
 
     def pop(self):
-        return self.myList.remove_head
+        return self.myList.pop_head

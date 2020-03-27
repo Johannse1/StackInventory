@@ -69,8 +69,6 @@ class LinkedList:
         head = None
 
 
-
-Focus
 class ListNode:
     """
     A node in a singly-linked list.
